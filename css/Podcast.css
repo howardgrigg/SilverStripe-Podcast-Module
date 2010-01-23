@@ -1,0 +1,51 @@
+#ajaxTableBoxContainer{
+	display: block;	
+}
+#ajaxTableBox img.center {
+	margin: 30px auto;
+	display: block;
+}
+#episodes {
+	border-collapse: collapse;
+	width: 100%;
+}
+#episodes tr {
+	line-height: 30px;
+}
+#episodes tr.even {
+	background-color: #dbebfa;
+}
+#episodes tr.first {
+	border-top-style: solid;
+	border-top-color: #dbebfa;
+}
+#episodes tr.last {
+	border-bottom-style: solid;
+	border-bottom-color: #dbebfa;
+}
+#episodes tr.even td.episode-download {
+	border-right: 2px solid #fff;
+}
+#episodes tbody tr td.episode-player {
+	padding-top: 10px;
+}
+#episodes td {
+	padding-left: 10px;
+	border-style: none;
+}
+#episodes td.episode-title {
+	width: 210px;
+	line-height: 15px;
+}
+#episodes td.episode-download {
+	width: 60px;
+	border-right: 2px solid #dbebfa;
+}
+#episodes .duration{
+	color: #7c7e6d;
+	float: none;
+}
+p#pagination-links {
+	width: 100%;
+	text-align: center;
+}
