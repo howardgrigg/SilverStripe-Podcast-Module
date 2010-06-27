@@ -1,5 +1,5 @@
-<% require javascript(dataobject_manager/javascript/jquery.1.3.js) %>
-<% require javascript(podcast/javascript/livequery.jquery.js) %>
+<% require javascript(sapphire/thirdparty/jquery/jquery.js) %>
+<% require javascript(sapphire/thirdparty/jquery-livequery/jquery.livequery.js) %>
 <% require javascript(podcast/javascript/podcast.js) %>
 <% require css(podcast/css/Podcast.css) %>
 
