@@ -6,7 +6,7 @@
         <copyright>Copyright $Now.Year <% control Page(home) %>$Title<% end_control %></copyright>
         <itunes:author>$Author</itunes:author>
         <itunes:block>no</itunes:block>
-        <itunes:explicit>no</itunes:explicit>
+        <itunes:explicit><% if Explicit %>yes<% else %>no<% end_if %></itunes:explicit>
         <% if Image %>
         <itunes:image href="$Image.AbsoluteURL"></itunes:image>
         <% end_if %>
