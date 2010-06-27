@@ -92,8 +92,7 @@ class PodcastPage_Controller extends Page_Controller {
 	}
 	
 	function RSSLink() {
-//		return 'yes';
-		return Director::baseURL().$this->URLSegment."/episodesRSS";
+		return $this->AbsoluteLink()."episodesRSS";
 	}
 	
 	function orderedEpisodes(){

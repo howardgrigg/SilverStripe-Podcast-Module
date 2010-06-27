@@ -7,7 +7,9 @@
         <itunes:author>$Author</itunes:author>
         <itunes:block>no</itunes:block>
         <itunes:explicit>no</itunes:explicit>
+        <% if Image %>
         <itunes:image href="$Image.AbsoluteURL"></itunes:image>
+        <% end_if %>
         <itunes:owner>
             <itunes:name>$Author</itunes:name>
             <itunes:email>$OwnerEmail</itunes:email>
@@ -20,16 +22,16 @@
 		<item>
 			<title>$Title</title>
 			<pubDate>$Date.Rfc822</pubDate>
-			<link>$Attachment.URL</link>
+			<link>$Attachment.AbsoluteURL</link>
 			<description>$Artist</description>
 			<source url="$Top.RSSLink"></source>
 			<itunes:subtitle>$Artist</itunes:subtitle>
 			<itunes:explicit>no</itunes:explicit>
 			<itunes:block>no</itunes:block>
 			<itunes:author>$Artist</itunes:author>
-			<guid>$Attachment.URL</guid>
+			<guid>$Attachment.AbsoluteURL</guid>
 			<% if Duration %><itunes:duration>{$Duration}</itunes:duration><% end_if %>
-			<enclosure url="$Attachment.URL" type="audio/mpeg" length="$Attachment.getAbsoluteSize"></enclosure>
+			<enclosure url="$Attachment.AbsoluteURL" type="audio/mpeg" length="$Attachment.getAbsoluteSize"></enclosure>
 		</item>
 		<% end_control %>
 		
