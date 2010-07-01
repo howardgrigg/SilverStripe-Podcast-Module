@@ -117,7 +117,7 @@ class PodcastPage_Controller extends Page_Controller {
 	
 		$doSet = DataObject::get(
 			"PodcastEpisode",
-			"",
+			"PodcastPageID = $this->ID",
 			"Date DESC",
 			"",
 			""
