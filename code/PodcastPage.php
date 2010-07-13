@@ -1,7 +1,7 @@
 <?php
 
 class PodcastPage extends Page {
-	
+		
 	static $db = array (
 		'PodcastTitle' => 'Varchar',
 		'Author' => 'Varchar',
@@ -41,20 +41,25 @@ class PodcastPage extends Page {
 
 		$manager->setUploadFolder('/Podcasts/');
 		
-		$f->fieldByName('Root.Content')->insertBefore(new Tab('Episodes'), 'Main');
-		$f->fieldByName('Root.Content')->insertBefore(new Tab('PodcastDetails'), 'Main');
+		$f->fieldByName('Root.Content')->insertBefore(new Tab(_t("PodcastPage.Episodes","Episodes")), 'Main');
+		$f->fieldByName('Root.Content')->insertBefore(new Tab(_t("PodcastPage.PodcastDetails","Podcast Details")), 'Main');
 		
-		$f->addFieldToTab("Root.Content.PodcastDetails", new LiteralField('Explaination','<h2>Podcast Details</h2><p>These details are used in the RSS feed for the podcast - the RSS feed is compatible with iTunes.</p>'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new TextField('PodcastTitle','Podcast Title'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new TextField('Author','Podcast Author'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new TextField('OwnerEmail','Podcast Owner Contact Email'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new CheckboxField('Explicit','Explicit:'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new TextAreaField('Summary','Podcast Summary'));
-		$f->addFieldToTab("Root.Content.PodcastDetails", new FileIFrameField('Image', 'Podcast Image'));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new LiteralField('Explanation','<h2>Podcast Details</h2><p>These details are used in the RSS feed for the podcast - the RSS feed is compatible with iTunes.</p>'));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new TextField('PodcastTitle', _t("PodcastPage.PodcastTitle","Podcast Title")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new TextField('Author', _t("PodcastPage.PodcastAuthor","Podcast Author")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new TextField('OwnerEmail', _t("PodcastPage.OwnerEmail","Podcast Owner Contact Email")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new CheckboxField('Explicit', _t("PodcastPage.Explicit","Explicit:")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new TextAreaField('Summary', _t("PodcastPage.Summary","Podcast Summary")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new FileIFrameField('Image', _t("PodcastPage.Image","Podcast Image")));
 		
 		$f->addFieldToTab("Root.Content.Episodes", $manager);
-//		if(!Permission::check('ADMIN')) $f->removeFieldFromTab("Root.Content", "Main");
-
 		
 		return $f;
 			

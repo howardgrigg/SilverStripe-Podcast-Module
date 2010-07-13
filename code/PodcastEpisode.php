@@ -17,11 +17,11 @@ class PodcastEpisode extends DataObject
 	public function getCMSFields_forPopup()
 	{
 		return new FieldSet(
-			new TextField('Title'),
-			new TextField('Artist'),
-			new TextField('Duration','Duration: (MM:SS)'),
-			new DatePickerField('Date'),
-			new FileIFrameField('Attachment')
+			new TextField('Title', _t("PodcastEpisode.Title","Title")),
+			new TextField('Artist', _t("PodcastEpisode.Artist","Artist")),
+			new TextField('Duration', _t("PodcastEpisode.Duration","Duration").'(MM:SS)'),
+			new DatePickerField('Date', _t("PodcastEpisode.Date","Date")),
+			new FileIFrameField('Attachment', _t("PodcastEpisode.Attachment","Attachment"))
 		);
 	}
 	
