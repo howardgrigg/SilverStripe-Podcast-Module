@@ -35,5 +35,12 @@ $lang['en_US']['PodcastPage']['SINGULARNAME'] = array(
 	'Singular name of the object, used in dropdowns and to generally identify a single object in the interface'
 );
 $lang['en_US']['PodcastPage']['Summary'] = 'Podcast Summary';
+$lang['en_US']['ajaxPodcastTable.ss']['Download'] = 'Download';
+$lang['en_US']['ajaxPodcastTable.ss']['GoToPage'] = 'Go to Page';
+$lang['en_US']['ajaxPodcastTable.ss']['Next'] = 'Next';
+$lang['en_US']['ajaxPodcastTable.ss']['NextPage'] = 'Next Page';
+$lang['en_US']['ajaxPodcastTable.ss']['PlayNow'] = 'Play now';
+$lang['en_US']['ajaxPodcastTable.ss']['Prev'] = 'Prev';
+$lang['en_US']['ajaxPodcastTable.ss']['PreviousPage'] = 'Previous Page';
 
 ?>
