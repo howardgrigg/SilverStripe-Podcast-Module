@@ -5,6 +5,7 @@ global $lang;
 $lang['en_US']['PodcastEpisode']['Artist'] = 'Artist';
 $lang['en_US']['PodcastEpisode']['Attachment'] = 'Attachment';
 $lang['en_US']['PodcastEpisode']['Date'] = 'Date';
+$lang['en_US']['PodcastEpisode']['Description'] = 'Description';
 $lang['en_US']['PodcastEpisode']['Duration'] = 'Duration';
 $lang['en_US']['PodcastEpisode']['PLURALNAME'] = array(
 	'Podcast Episods',
@@ -35,8 +36,11 @@ $lang['en_US']['PodcastPage']['SINGULARNAME'] = array(
 	'Singular name of the object, used in dropdowns and to generally identify a single object in the interface'
 );
 $lang['en_US']['PodcastPage']['Summary'] = 'Podcast Summary';
+$lang['en_US']['PodcastPage_episode.ss']['Download'] = 'Download';
+$lang['en_US']['PodcastPage_episode.ss']['PlayNow'] = 'Play now';
 $lang['en_US']['ajaxPodcastTable.ss']['Download'] = 'Download';
 $lang['en_US']['ajaxPodcastTable.ss']['GoToPage'] = 'Go to Page';
+$lang['en_US']['ajaxPodcastTable.ss']['Mins'] = 'mins';
 $lang['en_US']['ajaxPodcastTable.ss']['Next'] = 'Next';
 $lang['en_US']['ajaxPodcastTable.ss']['NextPage'] = 'Next Page';
 $lang['en_US']['ajaxPodcastTable.ss']['PlayNow'] = 'Play now';

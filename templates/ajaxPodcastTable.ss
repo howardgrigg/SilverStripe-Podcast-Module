@@ -2,7 +2,7 @@
 <% control orderedEpisodes %>
 	<tr class="$EvenOdd $FirstLast">
 		<td class="episode-date">$Date.Nice</td>
-		<td class="episode-title">$Title<br />$Speaker <% if Duration %><span class="duration">($Duration mins)</span><% end_if %></td>
+		<td class="episode-title">$Title<br />$Speaker <% if Duration %><span class="duration">($Duration <% _t('Mins','mins') %>)</span><% end_if %></td>
 		<% control Attachment %>
 			<td class="episode-download"><a href="$Link"><% _t('Download','Download') %></a></td>
 			<td class="episode-playnow"><% _t('PlayNow','Play now') %>:</td>
