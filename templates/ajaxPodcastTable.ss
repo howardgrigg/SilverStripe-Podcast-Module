@@ -1,8 +1,13 @@
 <table id="episodes">
 <% control orderedEpisodes %>
 	<tr class="$EvenOdd $FirstLast">
-		<td class="episode-date">$Date.Nice</td>
-		<td class="episode-title">$Title<br />$Speaker <% if Duration %><span class="duration">($Duration <% _t('Mins','mins') %>)</span><% end_if %></td>
+		<% if Top.PagePerEpisode %>
+			<td class="episode-date"><a href="{$Top.Link}episode/{$ID}" title="$Title">$Date.Nice</a></td>
+			<td class="episode-title"><a href="{$Top.Link}episode/{$ID}" title="$Title">$Title<br />$Speaker <% if Duration %><span class="duration">($Duration <% _t('Mins','mins') %>)</span><% end_if %></a></td>
+		<% else %>
+			<td class="episode-date">$Date.Nice</td>
+			<td class="episode-title">$Title<br />$Speaker <% if Duration %><span class="duration">($Duration <% _t('Mins','mins') %>)</span><% end_if %></td>
+		<% end_if %>
 		<% control Attachment %>
 			<td class="episode-download"><a href="$Link"><% _t('Download','Download') %></a></td>
 			<td class="episode-playnow"><% _t('PlayNow','Play now') %>:</td>

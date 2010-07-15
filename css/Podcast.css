@@ -49,3 +49,10 @@ p#pagination-links {
 	width: 100%;
 	text-align: center;
 }
+#episode-image{
+	float: right;
+}
+#shownotes{
+	padding-top: 15px;
+	border-top: solid 1px;
+}

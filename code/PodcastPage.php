@@ -7,7 +7,8 @@ class PodcastPage extends Page {
 		'Author' => 'Varchar',
 		'Summary' => 'Text',
 		'OwnerEmail'  => 'Varchar',
-		'Explicit'  => 'Boolean'
+		'Explicit'  => 'Boolean',
+		'PagePerEpisode' => 'Boolean'
 	);
 	
 	static $has_one = array (
@@ -54,6 +55,8 @@ class PodcastPage extends Page {
 			new TextField('OwnerEmail', _t("PodcastPage.OwnerEmail","Podcast Owner Contact Email")));
 		$f->addFieldToTab("Root.Content.PodcastDetails", 
 			new CheckboxField('Explicit', _t("PodcastPage.Explicit","Explicit:")));
+		$f->addFieldToTab("Root.Content.PodcastDetails", 
+			new CheckboxField('PagePerEpisode', _t("PodcastPage.PagePerEpisode","Allow episode notes (including a page for each episode to display them:")));
 		$f->addFieldToTab("Root.Content.PodcastDetails", 
 			new TextAreaField('Summary', _t("PodcastPage.Summary","Podcast Summary")));
 		$f->addFieldToTab("Root.Content.PodcastDetails", 
@@ -130,7 +133,23 @@ class PodcastPage_Controller extends Page_Controller {
 		
   	return $doSet;
 	}
+	    
+    public function episode(){
+		return $this;
+	}
+	    
+    function singleEpisode(){
+		
+		if($URLID = Director::URLParam('ID')){
+		
+			$EpisodeID = Convert::raw2xml($URLID);
+			
+			if(is_numeric($EpisodeID)){
+				return DataObject::get_by_id('PodcastEpisode', $EpisodeID);
+			}
+		}
 	
+	}
 }
 
 ?>
