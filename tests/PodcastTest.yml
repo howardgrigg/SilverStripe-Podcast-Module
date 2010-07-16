@@ -1,0 +1,19 @@
+PodcastPage:
+	show:
+		PodcastTitle: Great Show
+		URLSegment: great-show
+
+PodcastEpisode:
+	first:
+		Title: First Episode
+		URLSegment: first-episode
+		Date: 2000-01-01 01:01:01
+		PodcastPage: =>PodcastPage.show
+	second:
+		Title: Second Episode
+		URLSegment: second-episode
+		Date: 2001-01-01 01:01:01
+		PodcastPage: =>PodcastPage.show
+
+Member:
+    admin:
