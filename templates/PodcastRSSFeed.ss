@@ -32,6 +32,11 @@
 			<guid>$Attachment.AbsoluteURL</guid>
 			<% if Duration %><itunes:duration>{$Duration}</itunes:duration><% end_if %>
 			<enclosure url="$Attachment.AbsoluteURL" type="audio/mpeg" length="$Attachment.getAbsoluteSize"></enclosure>
+			<% if Top.PagePerEpisode %>
+			<% if ShowNotes %>
+			<itunes:summary>$ShowNotes</itunes:summary>
+			<% end_if %>
+			<% end_if %>
 		</item>
 		<% end_control %>
 		
