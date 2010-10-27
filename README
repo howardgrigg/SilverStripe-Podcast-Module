@@ -1,0 +1,13 @@
+= Installation Instructions =
+  * Install required modules - DataObjectManager and SWFUpload.
+  * Run dev/build
+  * Install podcast module
+  * Run dev/build
+
+A new page type will appear in the CMS "Podcast Page". 
+  * Create one of these and configure the details for the podcast on the "Podcast Details" tab. 
+  * Upload your first episode on the "Episodes" tab.
+
+Done.
+
+More comprehensive instructions coming soon...
