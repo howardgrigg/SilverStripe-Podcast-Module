@@ -11,7 +11,7 @@ class PodcastEpisode extends DataObject
 	);
 
 	static $has_one = array (
-		'Attachment' => 'File',
+		'Attachment' => 'MP3',
 		'PodcastPage' => 'PodcastPage'
 	);
 
