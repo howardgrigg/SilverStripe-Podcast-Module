@@ -1,5 +1,5 @@
 = Installation Instructions =
-  * Install required modules - DataObjectManager and SWFUpload.
+  * Install required modules - DataObjectManager and Uploadify.
   * Run dev/build
   * Install podcast module
   * Run dev/build
