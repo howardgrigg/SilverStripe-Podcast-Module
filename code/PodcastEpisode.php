@@ -14,7 +14,11 @@ class PodcastEpisode extends DataObject
 		'Attachment' => 'MP3',
 		'PodcastPage' => 'PodcastPage'
 	);
-
+  
+  public static $summary_fields = array(
+    'Title' => 'Title',
+    'Date'  =>  'Date'
+  );
 	/**
 	 *
 	 *
@@ -22,18 +26,18 @@ class PodcastEpisode extends DataObject
 	 */
 
 
-	public function getCMSFields_forPopup() {
-		$f = new FieldSet(
+	public function getCMSFields() {
+		$f = new FieldList(
 			new TextField('Title', _t("PodcastEpisode.Title", "Title")),
 			new TextField('Artist', _t("PodcastEpisode.Artist", "Artist")),
 			new TextField('Duration', _t("PodcastEpisode.Duration", "Duration").'(MM:SS)'),
-			new DatePickerField('Date', _t("PodcastEpisode.Date", "Date")),
-			new FileIFrameField('Attachment', _t("PodcastEpisode.Attachment", "Attachment"))
+			new DateField('Date', _t("PodcastEpisode.Date", "Date")),
+			new UploadField('Attachment', _t("PodcastEpisode.Attachment", "Attachment"))
 		);
 
 
 		if ($this->PodcastPage()->PagePerEpisode) {
-			$f->push(new SimpleTinyMCEField('ShowNotes', _t("PodcastEpisode.ShowNotes", "Show Notes:")));
+			$f->push(new TextAreaField('ShowNotes', _t("PodcastEpisode.ShowNotes", "Show Notes:")));
 		}
 
 		return $f;

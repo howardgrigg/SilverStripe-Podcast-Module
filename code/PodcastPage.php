@@ -30,42 +30,38 @@ class PodcastPage extends Page {
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
+    $gridFieldConfig = GridFieldConfig::create()->addComponents(
+      new GridFieldToolbarHeader(),
+      new GridFieldAddNewButton('toolbar-header-right'),
+      new GridFieldSortableHeader(),
+      new GridFieldDataColumns(),
+      new GridFieldPaginator(20),
+      new GridFieldEditButton(),
+      new GridFieldDeleteAction(),
+      new GridFieldDetailForm()
+    );
+		$gridField = new GridField("Episodes", "Podcast Episodes", $this->Episodes(), $gridFieldConfig);
+		
 
-		$manager = new FileDataObjectManager(
-			$this,
-			'Episodes',
-			'PodcastEpisode',
-			'Attachment',
-			array(
-				'Title' => 'Title',
-				'Artist' => 'Artist'
-			),
-			'getCMSFields_forPopup' 
-		);
+		$f->addFieldToTab("Root.Episodes", $gridField); // add the grid field to a tab in the CMS	
 
-		$manager->setUploadFolder('/Podcasts/');
-
-		$f->fieldByName('Root.Content')->insertBefore(new Tab(_t("PodcastPage.Episodes", "Episodes")), 'Main');
-		$f->fieldByName('Root.Content')->insertBefore(new Tab(_t("PodcastPage.PodcastDetails", "Podcast Details")), 'Main');
-
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new LiteralField('Explanation', '<h2>Podcast Details</h2><p>These details are used in the RSS feed for the podcast - the RSS feed is compatible with iTunes.</p>'));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new TextField('PodcastTitle', _t("PodcastPage.PodcastTitle", "Podcast Title")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new TextField('Author', _t("PodcastPage.PodcastAuthor", "Podcast Author")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new TextField('OwnerEmail', _t("PodcastPage.OwnerEmail", "Podcast Owner Contact Email")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new CheckboxField('Explicit', _t("PodcastPage.Explicit", "Explicit:")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new CheckboxField('PagePerEpisode', _t("PodcastPage.PagePerEpisode", "Allow episode notes (including a page for each episode to display them:")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
+		$f->addFieldToTab("Root.PodcastDetails",
 			new TextAreaField('Summary', _t("PodcastPage.Summary", "Podcast Summary")));
-		$f->addFieldToTab("Root.Content.PodcastDetails",
-			new FileIFrameField('Image', _t("PodcastPage.Image", "Podcast Image")));
+		$f->addFieldToTab("Root.PodcastDetails",
+			new UploadField('Image', _t("PodcastPage.Image", "Podcast Image")));
 
-		$f->addFieldToTab("Root.Content.Episodes", $manager);
 
 		return $f;
 
